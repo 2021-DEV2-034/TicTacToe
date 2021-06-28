@@ -25,3 +25,4 @@ I have programmed a simple solution to the Tic Tac Toe game with a TDD approach.
 To run the project simply clone this repository and run the project with Xcode in any simulator. The project does not have any dependencies or third party libraries.
 
 Tests have been made for the most significant cases and a very simple UI has been added to test the game.
+# TicTacToe
