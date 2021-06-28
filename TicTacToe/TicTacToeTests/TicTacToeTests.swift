@@ -20,7 +20,9 @@ class TicTacToeTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testFirstRowCrossWin {
-        let result = 
+    func testFirstRowCrossWin() {
+        let status: [PlayStep] = [.cross, .cross, .cross, .empty, .empty, .empty, .empty, .empty, .empty,]
+        let result = ticTacToe.checkWinner(status)
+        XCTAssertEqual(GameWinner.crossWin, result, "Incorrect game winner")
     }
 }

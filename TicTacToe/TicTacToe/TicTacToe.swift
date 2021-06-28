@@ -40,7 +40,7 @@ class TicTacToe {
         
     }
     
-    func checkWinner(_ status: [PlayStep], _ step: Int) -> GameWinner {
+    func checkWinner(_ status: [PlayStep]) -> GameWinner {
         return .gameActive
     }
 }
