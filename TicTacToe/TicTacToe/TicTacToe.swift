@@ -22,44 +22,33 @@ enum PlayStep: Int {
 class TicTacToe {
     
     internal var winnerCombinations = [(0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6)]
-    var player = 1
+    var player = 0
     var status = Array(repeating: PlayStep.empty, count: 9)
     var step = 1
     
-    init() {
-        
-    }
+    init() {}
     
     func reset() {
-        player = 1
+        player = 0
         status = Array(repeating: PlayStep.empty, count: 9)
         step = 1
     }
     
     func play(_ pos: Int, _ val: PlayStep) -> (step: Int, position: Int, value: PlayStep) {
-        return (1, 0, .circle)
+        status[pos] = val
+        step += 1
+        player = player == 0 ? 1: 0
+        return (step - 1, pos, val)
     }
     
     func checkWinner(_ status: [PlayStep]) -> GameWinner {
-        if status[winnerCombinations[0].0] != .empty && status[winnerCombinations[0].0] == status[winnerCombinations[0].1] && status[winnerCombinations[0].1] == status[winnerCombinations[0].2] {
-            if status[winnerCombinations[0].0] == .cross {
-                return .crossWin
-            } else if status[winnerCombinations[0].0] == .circle {
-                return .circleWin
-            }
-        }
-        if status[winnerCombinations[3].0] != .empty && status[winnerCombinations[3].0] == status[winnerCombinations[3].1] && status[winnerCombinations[3].1] == status[winnerCombinations[3].2] {
-            if status[winnerCombinations[3].0] == .cross {
-                return .crossWin
-            } else if status[winnerCombinations[3].0] == .circle {
-                return .circleWin
-            }
-        }
-        if status[winnerCombinations[6].0] != .empty && status[winnerCombinations[6].0] == status[winnerCombinations[6].1] && status[winnerCombinations[6].1] == status[winnerCombinations[6].2] {
-            if status[winnerCombinations[6].0] == .cross {
-                return .crossWin
-            } else {
-                return .circleWin
+        for combination in winnerCombinations {
+            if status[combination.0] != .empty && status[combination.0] == status[combination.1] && status[combination.1] == status[combination.2] {
+                if status[combination.0] == .cross {
+                    return .crossWin
+                } else if status[combination.0] == .circle {
+                    return .circleWin
+                }
             }
         }
         return .gameActive
