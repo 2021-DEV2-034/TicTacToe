@@ -31,4 +31,10 @@ class TicTacToeTests: XCTestCase {
         let result = ticTacToe.checkWinner(status)
         XCTAssertEqual(GameWinner.circleWin, result, "Incorrect game winner")
     }
+    
+    func testFirstColumnCrossWin() {
+        let status: [PlayStep] = [.cross, .empty, .empty, .cross, .empty, .empty, .cross, .empty, .empty,]
+        let result = ticTacToe.checkWinner(status)
+        XCTAssertEqual(GameWinner.crossWin, result, "Incorrect game winner")
+    }
 }

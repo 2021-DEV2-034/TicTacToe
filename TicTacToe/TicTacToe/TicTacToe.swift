@@ -44,6 +44,8 @@ class TicTacToe {
         if status[winnerCombinations[0].0] != .empty && status[winnerCombinations[0].0] == status[winnerCombinations[0].1] && status[winnerCombinations[0].1] == status[winnerCombinations[0].2] {
             if status[winnerCombinations[0].0] == .cross {
                 return .crossWin
+            } else if status[winnerCombinations[0].0] == .circle {
+                return .circleWin
             }
         }
         return .gameActive
