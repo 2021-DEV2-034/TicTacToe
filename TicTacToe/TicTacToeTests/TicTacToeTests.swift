@@ -21,25 +21,31 @@ class TicTacToeTests: XCTestCase {
     }
     
     func testFirstRowCrossWin() {
-        let status: [PlayStep] = [.cross, .cross, .cross, .empty, .empty, .empty, .empty, .empty, .empty,]
+        let status: [PlayStep] = [.cross, .cross, .cross, .empty, .empty, .empty, .empty, .empty, .empty]
         let result = ticTacToe.checkWinner(status)
         XCTAssertEqual(GameWinner.crossWin, result, "Incorrect game winner")
     }
     
     func testFirstRowCircleWin() {
-        let status: [PlayStep] = [.circle, .circle, .circle, .empty, .empty, .empty, .empty, .empty, .empty,]
+        let status: [PlayStep] = [.circle, .circle, .circle, .empty, .empty, .empty, .empty, .empty, .empty]
         let result = ticTacToe.checkWinner(status)
         XCTAssertEqual(GameWinner.circleWin, result, "Incorrect game winner")
     }
     
     func testFirstColumnCrossWin() {
-        let status: [PlayStep] = [.cross, .empty, .empty, .cross, .empty, .empty, .cross, .empty, .empty,]
+        let status: [PlayStep] = [.cross, .empty, .empty, .cross, .empty, .empty, .cross, .empty, .empty]
         let result = ticTacToe.checkWinner(status)
         XCTAssertEqual(GameWinner.crossWin, result, "Incorrect game winner")
     }
     
     func testFirstColumnCircleWin() {
-        let status: [PlayStep] = [.circle, .empty, .empty, .circle, .empty, .empty, .circle, .empty, .empty,]
+        let status: [PlayStep] = [.circle, .empty, .empty, .circle, .empty, .empty, .circle, .empty, .empty]
+        let result = ticTacToe.checkWinner(status)
+        XCTAssertEqual(GameWinner.circleWin, result, "Incorrect game winner")
+    }
+    
+    func testFirstDiagonalCrossWin() {
+        let status: [PlayStep] = [.cross, .empty, .empty, .empty, .cross, .empty, .empty, .empty, .cross]
         let result = ticTacToe.checkWinner(status)
         XCTAssertEqual(GameWinner.crossWin, result, "Incorrect game winner")
     }
