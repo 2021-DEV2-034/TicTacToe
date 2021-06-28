@@ -48,6 +48,11 @@ class TicTacToe {
                 return .circleWin
             }
         }
+        if status[winnerCombinations[3].0] != .empty && status[winnerCombinations[3].0] == status[winnerCombinations[3].1] && status[winnerCombinations[3].1] == status[winnerCombinations[3].2] {
+            if status[winnerCombinations[3].0] == .cross {
+                return .crossWin
+            }
+        }
         return .gameActive
     }
 }
