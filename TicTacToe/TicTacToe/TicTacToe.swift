@@ -6,17 +6,30 @@
 //
 
 import Foundation
+import UIKit
 
 enum GameWinner {
     case crossWin
     case circleWin
     case gameActive
+    case draw
 }
 
-enum PlayStep: Int {
-    case empty = 0
-    case cross = 1
-    case circle = 2
+enum PlayStep: String {
+    case empty = "Empty"
+    case cross = "Cross"
+    case circle = "Circle"
+    
+    var color: UIColor {
+        switch self {
+        case .empty:
+            return UIColor.blue
+        case .cross:
+            return UIColor.black
+        case .circle:
+            return UIColor.red
+        }
+    }
 }
 
 class TicTacToe {
@@ -34,11 +47,13 @@ class TicTacToe {
         step = 1
     }
     
-    func play(_ pos: Int, _ val: PlayStep) -> (step: Int, position: Int, value: PlayStep) {
-        status[pos] = val
+    func play(_ pos: Int) -> (step: Int, position: Int, value: PlayStep, result: GameWinner) {
+        let value: PlayStep = player == 0 ? .cross: .circle
+        status[pos] = value
         step += 1
         player = player == 0 ? 1: 0
-        return (step - 1, pos, val)
+        let result = checkWinner(status)
+        return (step - 1, pos, value, result)
     }
     
     func checkWinner(_ status: [PlayStep]) -> GameWinner {
@@ -50,6 +65,9 @@ class TicTacToe {
                     return .circleWin
                 }
             }
+        }
+        if step >= 10 {
+            return .draw
         }
         return .gameActive
     }

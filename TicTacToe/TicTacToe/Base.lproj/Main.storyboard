@@ -1,24 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tic Tac Toe View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TicTacToeViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="oth-1y-7Tr">
+                                <rect key="frame" x="0.0" y="241" width="414" height="414"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rmk-ec-3KL">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToB-gn-i7S">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                <state key="normal" title="Empty"/>
+                                                <connections>
+                                                    <action selector="boxTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M8X-be-bZv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtd-h6-bif">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="138"/>
+                                                <state key="normal" title="Empty"/>
+                                                <connections>
+                                                    <action selector="boxTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EFW-RI-VNa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1z-c6-s6T">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="138"/>
+                                                <state key="normal" title="Empty"/>
+                                                <connections>
+                                                    <action selector="boxTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bQi-Mp-WOf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="suA-Pk-8rC">
+                                        <rect key="frame" x="0.0" y="138" width="414" height="138"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fud-Gk-Mx0">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                <state key="normal" title="Empty"/>
+                                                <connections>
+                                                    <action selector="boxTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dUs-oV-fzL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSh-uJ-RG7">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="138"/>
+                                                <state key="normal" title="Empty"/>
+                                                <connections>
+                                                    <action selector="boxTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HdJ-gZ-UfT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Cr-Jy-cap">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="138"/>
+                                                <state key="normal" title="Empty"/>
+                                                <connections>
+                                                    <action selector="boxTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rrm-FL-1jM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4ne-Ag-LtJ">
+                                        <rect key="frame" x="0.0" y="276" width="414" height="138"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBD-mk-aWk">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                <state key="normal" title="Empty"/>
+                                                <connections>
+                                                    <action selector="boxTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zQ7-Ab-Qek"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNQ-zV-G0g">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="138"/>
+                                                <state key="normal" title="Empty"/>
+                                                <connections>
+                                                    <action selector="boxTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hxJ-ej-8bL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4i-Lg-K8o">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="138"/>
+                                                <state key="normal" title="Empty"/>
+                                                <connections>
+                                                    <action selector="boxTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pcj-oP-ZKK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oth-1y-7Tr" secondAttribute="height" multiplier="1:1" id="l6V-Fr-EoS"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oth-1y-7Tr" secondAttribute="trailing" id="5lM-GD-duU"/>
+                            <constraint firstItem="oth-1y-7Tr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HA9-8Y-sFO"/>
+                            <constraint firstItem="oth-1y-7Tr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tco-Tr-zAX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="board" destination="oth-1y-7Tr" id="2Og-Hw-HY2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="119"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
