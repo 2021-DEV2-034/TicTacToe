@@ -36,8 +36,8 @@ class TicTacToe {
         step = 1
     }
     
-    func play(_ pos: Int, _ val: PlayStep) {
-        
+    func play(_ pos: Int, _ val: PlayStep) -> (step: Int, position: Int, value: PlayStep) {
+        return (1, 0, .circle)
     }
     
     func checkWinner(_ status: [PlayStep]) -> GameWinner {
